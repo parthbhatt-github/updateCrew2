@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: crewUpdate
+  name: secondupdate
   namespace: eksapp
 spec:
   type: NodePort
@@ -10,4 +10,4 @@ spec:
       targetPort: 8080
       protocol: TCP
   selector:
-    app: crewUpdate
+    app: secondupdate
