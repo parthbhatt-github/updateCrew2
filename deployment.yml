@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crewUpdate
+  namespace: eksapp
+  labels:
+    app: crewUpdate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crewUpdate
+  template:
+    metadata:
+      labels:
+        app: crewUpdate
+    spec:
+      containers:
+        - name: updatecrew
+          image: 265083127752.dkr.ecr.ap-south-1.amazonaws.com/ecr-crewUpdate-repo
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
