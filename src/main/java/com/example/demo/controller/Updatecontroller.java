@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
-import org.slf4j.LoggerFactory;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -13,22 +14,21 @@ import com.example.demo.entity.ProcessedRequestDTO;
 import com.example.demo.entity.Response;
 
 import com.example.demo.entity.Crew;
-import com.example.demo.services.CloudWatchAppender;
+
 import com.example.demo.services.Updateresttemplateservice;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ch.qos.logback.classic.Logger;
-import ch.qos.logback.classic.spi.ILoggingEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 
 
 @RestController
 public class Updatecontroller {
+	private static final Logger _logger = LogManager.getLogger(Updatecontroller.class);
 	
-	//private Logger logger = new LoggerFactory();
-	private ILoggingEvent _logger =  (ILoggingEvent) LoggerFactory.getLogger(Updatecontroller.class);
-	//private Logger logger = (Logger) LoggerFactory.getLogger(Updatecontroller.class);
-
 	@Autowired
 	ObjectMapper mapper;
 	
@@ -42,8 +42,8 @@ public class Updatecontroller {
 	
 	@PutMapping("/updateCrew")
     public ResponseEntity<Response> UpdateCrew(@RequestBody Crew crew) throws JsonProcessingException {
-		_logger.getMessage();
 	
+		_logger.info("Cloudwatch message send from update controller");
         System.out.println(crew);
 		ProcessedRequestDTO requestDTO = updateRequest(crew);
         String jsonRequest = mapper.writeValueAsString(requestDTO);

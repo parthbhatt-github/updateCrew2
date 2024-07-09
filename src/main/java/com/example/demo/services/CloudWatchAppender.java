@@ -25,9 +25,6 @@ public class CloudWatchAppender extends UnsynchronizedAppenderBase<ILoggingEvent
         logGroupName = "/aws/updatecrew";
         logStreamName = "update_crew_log_stream";
 
-//        client = CloudWatchLogsClient.builder()
-              //  .region("ap-south-1")
-                //.build();
         
         client = CloudWatchLogsClient.builder().region(Region.AP_SOUTH_1).build();
         
