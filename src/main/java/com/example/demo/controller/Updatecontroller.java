@@ -40,7 +40,7 @@ public class Updatecontroller {
 	
 	String url = "http://dynamodbupdater/ddboperation";
 	
-	@PutMapping("/updateCrew")
+	@PutMapping("/secondUpdateCrew")
     public ResponseEntity<Response> UpdateCrew(@RequestBody Crew crew) throws JsonProcessingException {
 	
 		_logger.info("Cloudwatch message send from update controller");
