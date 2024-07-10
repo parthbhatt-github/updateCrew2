@@ -43,7 +43,8 @@ public class Updatecontroller {
 	@PutMapping("/secondUpdateCrew")
     public ResponseEntity<Response> UpdateCrew(@RequestBody Crew crew) throws JsonProcessingException {
 	
-		_logger.info("Cloudwatch message send from update controller");
+		_logger.info("Update controller executed for crew_id :" + crew.getCrewId());
+		_logger.info("Request:" + crew);
         System.out.println(crew);
 		ProcessedRequestDTO requestDTO = updateRequest(crew);
         String jsonRequest = mapper.writeValueAsString(requestDTO);
@@ -51,6 +52,8 @@ public class Updatecontroller {
         HttpEntity request = new HttpEntity<>(requestDTO);
         ResponseEntity<Response> response = restTemplate.exchange(url, HttpMethod.POST,request, Response.class);
         System.out.println(response);
+        _logger.info("Response :" + response);
+       
 
         return response;
     }
