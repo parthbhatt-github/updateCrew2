@@ -9,6 +9,7 @@ import software.amazon.awssdk.services.cloudwatchlogs.model.DescribeLogStreamsRe
 import software.amazon.awssdk.services.cloudwatchlogs.model.InputLogEvent;
 import software.amazon.awssdk.services.cloudwatchlogs.model.PutLogEventsRequest;
 
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -35,14 +36,17 @@ public class CloudWatchAppender extends UnsynchronizedAppenderBase<ILoggingEvent
 
 	@Override
 	protected void append(ILoggingEvent event) {
-		
+		Calendar calendar = Calendar.getInstance();
 		// Construct the log message
 		InputLogEvent logEvent = InputLogEvent.builder()
                 .message(event.getLevel().levelStr + " " + event.getFormattedMessage())
-                .timestamp(event.getTimeStamp())
+                .timestamp(calendar.getTimeInMillis())
                 .build();
 		
 		// Add event to the queue
+		
+
+		
 		
 		 eventQueue.add(logEvent);
 		 
