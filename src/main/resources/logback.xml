@@ -1,5 +1,5 @@
 <configuration>
-    <appender name="CLOUDWATCH" class="com.example.demo.services.CloudWatchAppender">
+    <appender name="CLOUDWATCH" class="com.example.demo.CloudWatchAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>INFO</level>
         </filter>
