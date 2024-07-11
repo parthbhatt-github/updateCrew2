@@ -1,6 +1,6 @@
 <configuration>
     <appender name="CLOUDWATCH" class="com.example.demo.CloudWatchAppender">
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
         </filter>
     </appender>
