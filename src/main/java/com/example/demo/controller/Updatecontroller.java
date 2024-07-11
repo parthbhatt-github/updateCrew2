@@ -19,15 +19,20 @@ import com.example.demo.services.Updateresttemplateservice;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 
 
 @RestController
 public class Updatecontroller {
-	private static final Logger _logger = LogManager.getLogger(Updatecontroller.class);
+	//private static final Logger _logger = LogManager.getLogger(Updatecontroller.class);
+	
+	private static final Logger  _logger = LoggerFactory.getLogger(Updatecontroller.class);
 	
 	@Autowired
 	ObjectMapper mapper;
